@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Gradient UI</title>
+
+  <style>
+    /* ---------------------- GLOBAL ---------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #6a11cb, #2575fc, #5b00ff);
+      background-size: 400% 400%;
+      animation: animatedBg 12s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    @keyframes animatedBg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ---------------------- FLOATING SHAPES ---------------------- */
+    .circle, .triangle, .square {
+      position: absolute;
+      opacity: 0.3;
+      filter: blur(2px);
+      animation: floatShape 10s infinite ease-in-out;
+    }
+
+    .circle {
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(#ffffff, rgba(255,255,255,0));
+      border-radius: 50%;
+      top: 5%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 80px solid transparent;
+      border-right: 80px solid transparent;
+      border-bottom: 140px solid rgba(255,255,255,0.4);
+      bottom: 8%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+
+    .square {
+      width: 110px;
+      height: 110px;
+      background: rgba(255,255,255,0.35);
+      border-radius: 15px;
+      top: 60%;
+      left: 70%;
+      animation-delay: 4s;
+    }
+
+    @keyframes floatShape {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-30px);
+      }
+    }
+
+    /* ---------------------- MAIN CARD ---------------------- */
+    .card {
+      width: 100%;
+      max-width: 470px;
+      background: rgba(255,255,255,0.13);
+      backdrop-filter: blur(14px);
+      border-radius: 25px;
+      padding: 45px 40px;
+      color: white;
+      z-index: 10;
+      box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.25);
+      animation: fadeUp 1.3s ease;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .heading {
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+
+    .subheading {
+      font-size: 16px;
+      opacity: 0.92;
+      margin-bottom: 25px;
+      line-height: 1.7;
+    }
+
+    /* Button */
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      font-size: 15px;
+      font-weight: 600;
+      background: white;
+      color: #2575fc;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(255,255,255,0.35);
+    }
+
+    /* ---------------------- RESPONSIVE ---------------------- */
+    @media (max-width: 480px) {
+      .card {
+        padding: 35px 25px;
+      }
+      .heading {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating Shapes -->
+  <div class="circle"></div>
+  <div class="triangle"></div>
+  <div class="square"></div>
+
+  <!-- Main Glass Card -->
+  <div class="card">
+    <h1 class="heading">✨ Level 3 — Task 1</h1>
+    <p class="subheading">
+      An advanced, visually rich UI featuring animated gradients,
+      floating geometric shapes, and a clean glassmorphism layout.
+      Designed to deliver a premium user interface experience.
+    </p>
+
+    <a href="#" class="btn">Explore More</a>
+  </div>
+
+</body>
+</html>

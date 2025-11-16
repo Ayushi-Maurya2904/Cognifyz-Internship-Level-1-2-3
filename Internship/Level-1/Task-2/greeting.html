@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greeting Message</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #cce5ff, #e6f2ff);
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 320px;
+    }
+
+    h2 {
+      color: #0077cc;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #004080;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Time-Based Greeting</h2>
+    <p>Click the button to see your greeting based on the time of day!</p>
+    <button onclick="showGreeting()">Show Greeting</button>
+  </div>
+
+  <script>
+    function showGreeting() {
+      const hours = new Date().getHours();
+      let greeting = "";
+
+      if (hours < 12) {
+        greeting = "Good Morning 🌞";
+      } else if (hours < 18) {
+        greeting = "Good Afternoon ☀️";
+      } else {
+        greeting = "Good Evening 🌙";
+      }
+
+      alert(greeting);
+    }
+  </script>
+</body>
+</html>

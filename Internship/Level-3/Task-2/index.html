@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Responsive UI</title>
+
+  <style>
+    /* ------------------------------------------------------------- */
+    /* Global */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #6a11cb, #2575fc, #5b00ff);
+      background-size: 400% 400%;
+      animation: animatedBg 12s ease infinite;
+      overflow-x: hidden;
+    }
+
+    @keyframes animatedBg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ------------------------------------------------------------- */
+    /* Floating Shapes */
+    .circle, .triangle, .square {
+      position: fixed;
+      opacity: 0.3;
+      filter: blur(2px);
+      animation: floatShape 10s infinite ease-in-out;
+      z-index: 0;
+    }
+
+    .circle {
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(#ffffff, rgba(255,255,255,0));
+      border-radius: 50%;
+      top: 5%;
+      left: 6%;
+      animation-delay: 0s;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 70px solid transparent;
+      border-right: 70px solid transparent;
+      border-bottom: 120px solid rgba(255,255,255,0.35);
+      bottom: 10%;
+      right: 12%;
+      animation-delay: 2s;
+    }
+
+    .square {
+      width: 100px;
+      height: 100px;
+      background: rgba(255,255,255,0.35);
+      border-radius: 18px;
+      top: 60%;
+      left: 75%;
+      animation-delay: 4s;
+    }
+
+    @keyframes floatShape {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+
+    /* ------------------------------------------------------------- */
+    /* Navbar */
+    nav {
+      width: 100%;
+      padding: 18px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      z-index: 20;
+    }
+
+    nav h2 {
+      color: white;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0px 0px 7px rgba(255,255,255,0.35);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li {
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      opacity: 0.7;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      width: 32px;
+      height: 28px;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 4px;
+      width: 100%;
+      background: white;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 18px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(14px);
+      padding: 20px;
+      border-radius: 16px;
+      position: absolute;
+      top: 70px;
+      right: 40px;
+      z-index: 15;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    /* ------------------------------------------------------------- */
+    /* Content Box */
+    .container {
+      margin-top: 150px;
+      padding: 35px;
+      max-width: 700px;
+      background: rgba(255,255,255,0.13);
+      backdrop-filter: blur(14px);
+      border-radius: 25px;
+      color: white;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid rgba(255,255,255,0.23);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+      animation: fadeUp 1.4s ease;
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .container h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 15px;
+      text-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+    }
+
+    .container p {
+      font-size: 17px;
+      line-height: 1.7;
+      opacity: 0.95;
+    }
+
+    /* ------------------------------------------------------------- */
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
+
+</head>
+<body>
+
+  <!-- Floating shapes -->
+  <div class="circle"></div>
+  <div class="triangle"></div>
+  <div class="square"></div>
+
+  <!-- Navbar -->
+  <nav>
+    <h2>✨ Task 2</h2>
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Docs</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Docs</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- Main glass container -->
+  <div class="container">
+    <h1>🌈 Level 3 — Task 2</h1>
+    <p>
+      This demo showcases a fully responsive navigation bar that adapts to different
+      screen sizes using media queries. On smaller screens, the navbar collapses
+      into a mobile-friendly hamburger menu.  
+      <br><br>
+      The overall UI follows an advanced animated gradient theme with floating shapes,
+      giving the layout a modern professional feel.
+    </p>
+  </div>
+
+</body>
+</html>
