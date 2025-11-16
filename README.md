@@ -102,4 +102,4 @@ Special thanks to **Cognifyz Technologies** for providing this internship opport
 ## 📬 Contact
 **Ayushi**  
 Email: ayushi29maur@gmail.com
-LinkedIn: in/ayushi-maurya29042729  
+LinkedIn: ayushi-maurya29042729  
